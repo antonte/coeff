@@ -23,7 +23,7 @@ public:
 
   std::string display() const;
   void change(int);
-  void load();
+  bool load();
   void rotate(bool);
   bool onKeyDown(SDL_Keycode);
 

@@ -61,9 +61,17 @@ void CoefficientRegistry::change(int value)
   f << *root;
 }
 
-void CoefficientRegistry::load()
+bool CoefficientRegistry::load()
 {
-  auto &&config = cpptoml::parse_file("coeff.toml");
-  for (auto &&coeff : data)
-    coeff->deserialize(config.get());
+  try
+  {
+    auto &&config = cpptoml::parse_file("coeff.toml");
+    for (auto &&coeff : data)
+      coeff->deserialize(config.get());
+  }
+  catch (...)
+  {
+    return false;
+  }
+  return true;
 }
