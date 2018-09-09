@@ -1,8 +1,8 @@
-#include "coefficient.hpp"
+#include "coeff.hpp"
 #include <cmath>
 #include <cpptoml/cpptoml.h>
 
-BaseCoefficient::BaseCoefficient(const char *aName) : name(aName) {}
+BaseCoeff::BaseCoeff(const char *aName) : name(aName) {}
 
 namespace Internal
 {

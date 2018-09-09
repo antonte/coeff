@@ -1,21 +1,21 @@
-#include "coefficient_registry.hpp"
+#include "coeff_reg.hpp"
 #include <cpptoml/cpptoml.h>
 #include <log/log.hpp>
 
-CoefficientRegistry &CoefficientRegistry::instance()
+CoeffReg &CoeffReg::instance()
 {
-  static CoefficientRegistry inst;
+  static CoeffReg inst;
   return inst;
 }
 
-std::string CoefficientRegistry::display() const
+std::string CoeffReg::display() const
 {
   if (currentIdx >= data.size())
     return "Not selected";
   return data[currentIdx]->display();
 }
 
-void CoefficientRegistry::rotate(bool isUp)
+void CoeffReg::rotate(bool isUp)
 {
   if (data.empty())
     return;
@@ -25,7 +25,7 @@ void CoefficientRegistry::rotate(bool isUp)
     currentIdx = (currentIdx + data.size() - 1) % data.size();
 }
 
-bool CoefficientRegistry::onKeyDown(SDL_Keycode key)
+bool CoeffReg::onKeyDown(SDL_Keycode key)
 {
   switch (key)
   {
@@ -49,7 +49,7 @@ bool CoefficientRegistry::onKeyDown(SDL_Keycode key)
   return false;
 }
 
-void CoefficientRegistry::change(int value)
+void CoeffReg::change(int value)
 {
   if (currentIdx >= data.size())
     return;
@@ -61,7 +61,7 @@ void CoefficientRegistry::change(int value)
   f << *root;
 }
 
-bool CoefficientRegistry::load()
+bool CoeffReg::load()
 {
   try
   {
