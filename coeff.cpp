@@ -1,6 +1,6 @@
 #include "coeff.hpp"
 #include <cmath>
-#include <cpptoml/cpptoml.h>
+#include <cpptoml.h>
 
 BaseCoeff::BaseCoeff(const char *aName) : name(aName) {}
 

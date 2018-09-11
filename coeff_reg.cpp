@@ -1,5 +1,5 @@
 #include "coeff_reg.hpp"
-#include <cpptoml/cpptoml.h>
+#include <cpptoml.h>
 #include <log/log.hpp>
 
 CoeffReg &CoeffReg::instance()
